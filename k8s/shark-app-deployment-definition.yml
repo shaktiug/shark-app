@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: shark-app-deployment
+spec:
+   template:
+      metadata:
+        labels:
+          name: shark-app
+          type: fe
+      spec:
+         containers:
+           - name: shark-app
+             image: shaktiug/node-shark-app:v1.1
+   replicas: 3
+   selector:
+      matchLabels:
+         type: fe
