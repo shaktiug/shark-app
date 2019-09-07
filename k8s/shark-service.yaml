@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: shark-service
+spec:
+    type: NodePort
+    ports:
+       - targetPort: 8080
+         port: 80
+         nodePort: 30008
+    selector:
+       name: shark-app
+       type: fe 
