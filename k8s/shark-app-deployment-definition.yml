@@ -12,6 +12,9 @@ spec:
          containers:
            - name: shark-app
              image: shaktiug/node-shark-app:v1.1
+             ports:
+               - containerPort: 8080
+                 protocol: TCP
    replicas: 3
    selector:
       matchLabels:
