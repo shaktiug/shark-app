@@ -7,7 +7,7 @@ spec:
     ports:
        - targetPort: 8080
          port: 80
-         nodePort: 30008
+         nodePort: 30009
     selector:
        name: shark-app
        type: fe 
