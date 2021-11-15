@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1aplhav1
+kind: Rollout
 metadata:
    name: shark-app-deployment
 spec:
@@ -19,3 +19,8 @@ spec:
    selector:
       matchLabels:
          type: fe
+   strategy:
+           blueGreen:
+                   activeService: shark-svc-active
+                   previewService:  shark-svc-preview
+                   autoPromotionEnabled: false
