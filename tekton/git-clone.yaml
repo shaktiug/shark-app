@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task-git-clone
+  namespace: tekton-builds
+spec:
+  workspaces:
+  - name: source
+  params:
+  - name: url
+    type: string
+  steps:
+  - name: clone
+    image: bitnami/git
+    script: |
+      cd $(workspaces.source.path)
+      git clone $(params.url)
