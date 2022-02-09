@@ -3,7 +3,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: toolkit
+  name: shark
   namespace: tekton-builds
 spec:
   params:
@@ -77,4 +77,3 @@ spec:
       workspace: pipeline-ws
     runAfter:
      - tests
-
