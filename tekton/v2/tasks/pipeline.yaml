@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+ name: cat-branch-readme
+ #namespace: tekton-builds
+spec:
+ params:
+   - name: repo-url
+     type: string
+     description: The git repository URL to clone from.
+   - name: branch-name
+     type: string
+     description: The git branch to clone.
+ workspaces:
+   - name: shared-data
+     description: |
+      This workspace will receive the cloned git repo and be passed
+       to the next Task for the repo's README.md file to be read.
+ tasks:
+   - name: fetch-repo
+     taskRef:
+       name: git-clone
+     workspaces:
+       - name: output
+         workspace: shared-data
+     params:
+       - name: url
+         value: $(params.repo-url)
+       - name: revision
+         value: $(params.branch-name)

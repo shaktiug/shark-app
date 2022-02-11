@@ -1,0 +1,3 @@
+resources:
+  - shark-app-deployment-definition.yml
+  - shark-service.yaml

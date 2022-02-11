@@ -4,8 +4,9 @@ metadata:
   name: build-kaniko-git
   namespace: tekton-builds
 spec:
+  workspaces:
+  - name: source
   params:
-  - name: app_repo
   - name: container_image
   - name: container_tag
   volumes:
@@ -19,7 +20,7 @@ spec:
   - name: build
     image: gcr.io/kaniko-project/executor:debug
     args:
-    - --context=$(params.app_repo)
+    - --context=dir://$(workspaces.source.path)/shark-app/
     - --destination=$(params.container_image):$(params.container_tag)
     volumeMounts:
     - name: kaniko-secret

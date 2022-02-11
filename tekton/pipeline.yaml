@@ -23,14 +23,17 @@ spec:
       workspace: pipeline-ws
     params:
     - name: url
-      value: git://github.com/shaktiug/$(params.project)
+      value: github.com/shaktiug/$(params.project)
   #####################
   - name: build-container-image
     taskRef:
       name: build-kaniko-git
+    workspaces:
+    - name: source
+      workspace: pipeline-ws
+    runAfter:
+     - git-clone
     params:
-    - name: app_repo
-      value: git://github.com/shaktiug/$(params.project)
     - name: container_image
       value: beoecomnpacr01.azurecr.io/$(params.project)
     - name: container_tag

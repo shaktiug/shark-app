@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1aplhav1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
    name: shark-app-deployment
 spec:
@@ -12,15 +12,7 @@ spec:
          containers:
            - name: shark-app
              image: shaktiug/node-shark-app:v1.1
-             ports:
-               - containerPort: 8080
-                 protocol: TCP
-   replicas: 2
+   replicas: 3
    selector:
       matchLabels:
          type: fe
-   strategy:
-           blueGreen:
-                   activeService: shark-svc-active
-                   previewService:  shark-svc-preview
-                   autoPromotionEnabled: false
