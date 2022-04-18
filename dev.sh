@@ -4,8 +4,6 @@
 echo "biulding image"
 docker build 
 docker build . -t dineshtestacr.azurecr.io/dineshtestrepo:v1
-echo "docker login"
-cat ~/mypassword.txt | docker login --username dineshtestacr --password-stdin
 echo "pushing image"
 docker push dineshtestacr.azurecr.io/dineshtestrepo:v1 
 
