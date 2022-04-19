@@ -5,9 +5,10 @@ pipeline {
     REGPAS='jp1ISYfYBGHGbGE=MIbDpOEr6UwdAr/n'
     REGADD='https://dineshtestacr.azurecr.io'
     WEBAPP='dineshtest' 
+    DID='dineshtestacr'
     DEVAPP='dineshtest1'
     RS='dinesh-sg'
-    REPONAME='shark'
+    
 }
   agent any
   parameters {
