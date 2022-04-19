@@ -1,5 +1,14 @@
 pipeline {
   options { timestamps () }
+  environment {
+    REGNAME='dineshtestacr.azurecr.io'
+    REGPAS='jp1ISYfYBGHGbGE=MIbDpOEr6UwdAr/n'
+    REGADD='https://dineshtestacr.azurecr.io'
+    WEBAPP='dineshtest' 
+    DEVAPP='dineshtest1'
+    RS='dinesh-sg'
+    REPONAME='shark'
+}
   agent any
   parameters {
       choice(name: 'choice', choices: ['dev', 'qa'], description: 'Choose any one')
