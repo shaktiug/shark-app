@@ -5,6 +5,7 @@ pipeline {
     REGPAS='jp1ISYfYBGHGbGE=MIbDpOEr6UwdAr/n'
     REGADD='https://dineshtestacr.azurecr.io'
     WEBAPP='dineshtest' 
+    REPO='dineshtestrepo'
     DID='dineshtestacr'
     DEVAPP='dineshtest1'
     RS='dinesh-sg'
