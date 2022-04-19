@@ -2,8 +2,7 @@
 # Counting the number of lines in a list of files
 # function version
 IMAGE=$REGNAME/$REPO:v${BUILD_NUMBER} 
-echo "building image"
-docker build 
+echo "building image" 
 docker build . -t $IMAGE
 echo "pushing image"
 docker push $IMAGE 
