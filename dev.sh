@@ -1,11 +1,11 @@
 #!/bin/bash
 # Counting the number of lines in a list of files
 # function version
-echo "biulding image"
+echo "building image"
 docker build 
-docker build . -t dineshtestacr.azurecr.io/dineshtestrepo:v1
+docker build . -t $REGNAME/$REPO:v${BUILD_NUMBER}
 echo "pushing image"
-docker push dineshtestacr.azurecr.io/dineshtestrepo:v1 
+docker push $REGADD/$REPO:v{BUILD_NUMBER} 
 
 if [ $choice == dev ]
 then
