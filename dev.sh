@@ -5,7 +5,7 @@ echo "building image"
 docker build 
 docker build . -t $REGNAME/$REPO:v${BUILD_NUMBER}
 echo "pushing image"
-docker push $REGADD/$REPO:v{BUILD_NUMBER} 
+docker push $REGADD/$REPO:v${BUILD_NUMBER} 
 
 if [ $choice == dev ]
 then
